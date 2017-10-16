@@ -167,7 +167,7 @@
 
 	<script type="text/javascript">
 		
-		var scoresArr = [];
+
 
 		function validateForm() {
 			var isValid = true;
@@ -192,26 +192,23 @@
 
 			if(validateForm())	{
 		    	var newPerson = {
-		        	personName: $("#name").val().trim(),
-		        	linkToPhoto: $("#photo").val(),
+		        	name: $("#name").val().trim(),
+		        	photo: $("#photo").val(),
 		        	scores: [$("#q1").val(),$("#q2").val(),$("#q3").val(),$("#q4").val(),$("#q5").val(),$("#q6").val(),$("#q7").val(),$("#q8").val(),$("#q9").val(),$("#q10").val()]
-		        	newPersonScore: function(){
-		        		for (var i = 0; i < newPerson.scores.length; i++){
-		        			scoresArr.push(newPersonScore);
-		        		}
-		        		return scoresArr;
-		        	}
 		    	};
 
-		    	
-		    	
-		    	console.log(newPerson);
+
+
+
+		    	console.log('new person' + newPerson);
 
 		    	var currentURL = window.location.origin;
 		    	
 				$.post(currentURL + "/api/friends", newPerson, function(data) {
 
-					console.log("data:",data);
+					console.log('data' + data);
+					$("#matchName").text(data.name);
+		    		$('#matchImg').attr("src", data.photo);
 
 	        	});
 	        	
