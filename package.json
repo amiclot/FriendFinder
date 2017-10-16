@@ -18,4 +18,7 @@
     "url": "https://github.com/amiclot/FriendFinder/issues"
   },
   "homepage": "https://github.com/amiclot/FriendFinder#readme"
+  "scripts": {
+    "start": "node server.js"
+  }
 }
